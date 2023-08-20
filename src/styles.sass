@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap'
+
+/* styles.sass */
+
+/* Cor de fundo principal */
+body
+  background-color: #6a1b9a  /* Um tom de roxo */
+  color: #ffffff  /* Texto em branco para contrastar */
+
+/* Estilize outros elementos da página com tons de roxo */
+.header
+  background-color: #8e24aa  /* Tom de roxo mais claro para o cabeçalho */
+
+.button-purple
+  background-color: #673ab7  /* Tom de roxo para botões */
+  color: #ffffff
+  border-color: #8e24aa
+
+/* Estilo do botão quando o mouse passa por cima */
+.button-purple:hover
+  background-color: #673ab7 /* Mantém o tom de roxo */
+  color: #ffffff /* Texto em branco */
+  border-color: #ffffff /* Adiciona uma borda branca */
+
+
+/* Estilo do botão quando pressionado */
+.button-purple:active, .button-purple:focus
+  background-color: #673ab7 /* Mantém o tom de roxo */
+  color: #ffffff /* Texto em branco */
+  border-color: #ffffff /* Adiciona uma borda branca */
+  box-shadow: none /* Remove a sombra do botão */
+
+.tamanhopagina
+  height: 88vh
+
