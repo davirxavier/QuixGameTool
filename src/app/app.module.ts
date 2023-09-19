@@ -8,7 +8,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgOptimizedImage} from "@angular/common";
+import { FormularioComponent } from './formulario/formulario.component';
+import {NgSelectModule} from "@ng-select/ng-select";
 
 @NgModule({
   declarations: [
@@ -17,12 +20,16 @@ import {FormsModule} from "@angular/forms";
     SobreComponent,
     ContatoComponent,
     CheckboxComponent,
+    FormularioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgOptimizedImage,
+    NgSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

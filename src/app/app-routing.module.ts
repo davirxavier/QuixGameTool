@@ -4,6 +4,7 @@ import {PaginainicialComponent} from "./paginainicial/paginainicial.component";
 import {SobreComponent} from "./sobre/sobre.component";
 import {CheckboxComponent} from "./checkbox/checkbox.component";
 import {ContatoComponent} from "./contato/contato.component";
+import {FormularioComponent} from "./formulario/formulario.component";
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
   },
   {
     path: "sobre", component: SobreComponent
+  },
+  {
+    path: "formulario", component: FormularioComponent
   },
   {
     path: "checkbox", component: CheckboxComponent

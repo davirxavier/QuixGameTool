@@ -1,0 +1,27 @@
+<form [formGroup]="formGroup" (submit)="onSubmit()">
+  <div>
+   <div>
+     <ng-select placeholder="Escolha a estrutura para o jogo..."
+                formControlName="estrutura"
+                [searchable]="true"
+                [items]="estruturas" bindValue="id" bindLabel="nome"></ng-select>
+   </div>
+    <div>
+      <ng-select placeholder="Escolha até 3 categorias para o jogo..."
+                 formControlName="categoria"
+                 [searchable]="true"
+                 [multiple]="true"
+                 [maxSelectedItems]="3"
+                 [items]="categorias" bindValue="id" bindLabel="nome"></ng-select>
+    </div>
+    <div>
+      <ng-select placeholder="Escolha até 3 gêneros para o jogo..."
+                 formControlName="genero"
+                 [searchable]="true"
+                 [multiple]="true"
+                 [maxSelectedItems]="3"
+                 [items]="generos" bindValue="id" bindLabel="nome"></ng-select>
+    </div>
+    <input *ngIf="formGroup.valid" type="submit" value="Enviar">
+  </div>
+</form>
