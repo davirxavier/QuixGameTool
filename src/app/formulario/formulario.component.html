@@ -22,6 +22,12 @@
                  [maxSelectedItems]="3"
                  [items]="generos" bindValue="id" bindLabel="nome"></ng-select>
     </div>
+    <div>
+      <ng-select placeholder="Escolha a perspectiva do jogo..."
+                 formControlName="visao"
+                 [searchable]="true"
+                 [items]="visoes" bindValue="id" bindLabel="nome"></ng-select>
+    </div>
     <input *ngIf="formGroup.valid" type="submit" value="Enviar">
   </div>
 </form>

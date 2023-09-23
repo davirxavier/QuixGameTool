@@ -1,120 +1,56 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Categoria, Estrutura, Genero, Visao} from "../models/classes";
+import {categorias} from "../models/lista-categorias";
+import {estruturas} from "../models/lista-estruturas";
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.sass']
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
 
   formGroup = new FormGroup({
-    nome: new FormControl('Anonimo', [Validators.required]),
     categoria: new FormControl(undefined),
     estrutura: new FormControl(undefined),
-    genero: new FormControl(undefined)
+    genero: new FormControl(undefined),
+    visao: new FormControl(undefined)
   });
 
-  categorias: any[] = [
-    {
-      id: 1,
-      nome: "Ação"
-    },
-    {
-      id: 2,
-      nome: "Aventura"
-    },
-    {
-      id: 3,
-      nome: "Arcade"
-    },
-    {
-      id: 4,
-      nome: "Aponte e clique"
-    },
-    {
-      id: 5,
-      nome: "Cartas"
-    },
-    {
-      id: 6,
-      nome: "Estratégia"
-    },
-    {
-      id: 8,
-      nome: "Luta"
-    },
-    {
-      id: 9,
-      nome: "Musical"
-    },
-    {
-      id: 10,
-      nome: "RPG"
-    },
-    {
-      id: 11,
-      nome: "Simulação"
-    },
-    {
-      id: 12,
-      nome: "Terror"
-    },
-    {
-      id: 13,
-      nome: "Textual"
-    },
-  ];
+  estruturas: Estrutura[] = [...estruturas];
 
-  estruturas: any[] = [
-    {
-      id: 1,
-      nome: "2D"
-    },
-    {
-      id: 2,
-      nome: "2.5D"
-    },
-    {
-      id: 3,
-      nome: "3D"
-    }
-  ];
+  categorias: Categoria[] = [...categorias];
 
-  generos: any[] = [
-    {
-      id: 1,
-      nome: "Primeira Pessoa"
-    },
-    {
-      id: 2,
-      nome: "Terceira Pessoa"
-    },
-    {
-      id: 3,
-      nome: "Plataforma"
-    },
-    {
-      id: 4,
-      nome: "Soulslike"
-    },
-    {
-      id: 5,
-      nome: "Turnos"
-    },
-    {
-      id: 6,
-      nome: "Educativo"
-    },
-    {
-      id: 7,
-      nome: "Hack 'n' Slash"
-    },
-    {
-      id: 8,
-      nome: "Esportes"
-    }
-  ];
+  generos: Genero[] = [];
+
+  visoes: Visao[] = [];
+
+  ngOnInit() {
+    this.formGroup.controls.estrutura.valueChanges.subscribe(estruturaId => {
+      this.visoes = [];
+
+      const estrutura = this.estruturas.find(e => e.id == estruturaId);
+      if (estrutura) {
+        this.visoes = this.visoes.concat(estrutura.visao);
+      }
+
+      this.visoes.sort((visao1, visao2) => visao1.localeCompare(visao2));
+    });
+
+    this.formGroup.controls.categoria.valueChanges.subscribe(categoriaIds => {
+      this.generos = [];
+
+      for (let categoriaId of categoriaIds) {
+        const categoria = this.categorias.find(c => c.id == categoriaId);
+        if (categoria) {
+          this.generos = this.generos.concat(categoria.generos);
+        }
+      }
+
+      this.generos.sort((genero1, genero2) => genero1.localeCompare(genero2));
+    });
+  }
 
   onSubmit() {
     console.log(this.formGroup.value)
