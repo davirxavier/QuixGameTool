@@ -28,6 +28,30 @@
                  [searchable]="true"
                  [items]="visoes" bindValue="id" bindLabel="nome"></ng-select>
     </div>
+    <div>
+      <ng-select placeholder="Escolha o tipo de controle do jogo..."
+                 formControlName="controle"
+                 [searchable]="true"
+                 [items]="controles" bindValue="id" bindLabel="nome"></ng-select>
+    </div>
+    <div>
+      <ng-select placeholder="Escolha o tipo de mapa do jogo..."
+                 formControlName="mapa"
+                 [searchable]="true"
+                 [items]="mapas" bindValue="id" bindLabel="nome"></ng-select>
+    </div>
+    <div>
+      <ng-select placeholder="Escolha o tipo de conexão do jogo..."
+                 formControlName="conexao"
+                 [searchable]="true"
+                 [items]="conexoes" bindValue="id" bindLabel="nome"></ng-select>
+    </div>
+    <div>
+      <ng-select placeholder="Escolha qual será a plataforma do jogo..."
+                 formControlName="plataforma"
+                 [searchable]="true"
+                 [items]="plataformas" bindValue="id" bindLabel="nome"></ng-select>
+    </div>
     <input *ngIf="formGroup.valid" type="submit" value="Enviar">
   </div>
 </form>

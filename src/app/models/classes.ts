@@ -49,3 +49,22 @@ export enum Visao {
   T_PESSOA = "Terceira Pessoa"
 }
 
+export class Controle {
+  id: number;
+  nome: string;
+}
+
+export class Mapa {
+  id: number;
+  nome: string;
+}
+
+export class Conexao {
+  id: number;
+  nome: string;
+}
+
+export class Plataforma {
+  id: number;
+  nome: string;
+}

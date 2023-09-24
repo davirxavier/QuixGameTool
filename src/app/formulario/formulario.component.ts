@@ -1,8 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Categoria, Estrutura, Genero, Visao} from "../models/classes";
+import {Categoria, Conexao, Controle, Estrutura, Genero, Mapa, Plataforma, Visao} from "../models/classes";
 import {categorias} from "../models/lista-categorias";
 import {estruturas} from "../models/lista-estruturas";
+import {controles} from "../models/lista-controles";
+import {mapas} from "../models/lista-mapas";
+import {conexoes} from "../models/lista-conexoes";
+import {plataformas} from "../models/lista-plataformas";
 
 @Component({
   selector: 'app-formulario',
@@ -15,7 +19,11 @@ export class FormularioComponent implements OnInit {
     categoria: new FormControl(undefined),
     estrutura: new FormControl(undefined),
     genero: new FormControl(undefined),
-    visao: new FormControl(undefined)
+    visao: new FormControl(undefined),
+    controle: new FormControl(undefined),
+    mapa: new FormControl(undefined),
+    conexao: new FormControl(undefined),
+    plataforma: new FormControl(undefined)
   });
 
   estruturas: Estrutura[] = [...estruturas];
@@ -25,6 +33,14 @@ export class FormularioComponent implements OnInit {
   generos: Genero[] = [];
 
   visoes: Visao[] = [];
+
+  controles: Controle[] = [...controles];
+
+  mapas: Mapa[] = [...mapas];
+
+  conexoes: Conexao[] = [...conexoes];
+
+  plataformas: Plataforma[] = [...plataformas];
 
   ngOnInit() {
     this.formGroup.controls.estrutura.valueChanges.subscribe(estruturaId => {
