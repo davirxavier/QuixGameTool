@@ -5,6 +5,7 @@ export const categorias: Categoria[] = [
   {
     id: 1,
     nome: "Ação",
+    img: CATEGORIA_IMG + "ação.png",
     generos: [
       Genero.LUTA,
       Genero.SOULS,
@@ -14,6 +15,7 @@ export const categorias: Categoria[] = [
   {
     id: 2,
     nome: "Aventura",
+    img: CATEGORIA_IMG + "aventura.png",
     generos: [
       Genero.EXPLORACAO,
       Genero.PLATAFORMA,
@@ -23,6 +25,7 @@ export const categorias: Categoria[] = [
   {
     id: 3,
     nome: "Arcade",
+    img: CATEGORIA_IMG + "arcade.png",
     generos: [
       Genero.COMBATE_PLAYERS,
       Genero.PONTOS,
@@ -32,6 +35,7 @@ export const categorias: Categoria[] = [
   {
     id: 4,
     nome: "Estratégia",
+    img: CATEGORIA_IMG + "estrategia.png",
     generos: [
       Genero.RTS,
       Genero.TBS,
@@ -42,7 +46,7 @@ export const categorias: Categoria[] = [
   {
     id: 5,
     nome: "Esportes",
-    img: CATEGORIA_IMG + "esporte.png",
+    img: CATEGORIA_IMG + "esportes.png",
     generos: [
       Genero.FUTEBOL,
       Genero.CARTAS,
@@ -55,11 +59,13 @@ export const categorias: Categoria[] = [
   {
     id: 6,
     nome: "Musical",
+    img: CATEGORIA_IMG + "musical.png" ,
     generos: []
   },
   {
     id: 7,
     nome: "RPG",
+    img: CATEGORIA_IMG + "rpg.png",
     generos: [
       Genero.RPG_ACAO,
       Genero.RPG_TURNO
@@ -68,6 +74,7 @@ export const categorias: Categoria[] = [
   {
     id: 8,
     nome: "Simulação",
+    img: CATEGORIA_IMG + "simulação.png",
     generos: [
       Genero.VEICULOS,
       Genero.SIMULADOR_VIDA,
@@ -77,6 +84,7 @@ export const categorias: Categoria[] = [
   {
     id: 9,
     nome: "Terror",
+    img: CATEGORIA_IMG + "terror.png",
     generos: [
       Genero.SURVIVAL_HORROR,
       Genero.TERROR_ACAO,
@@ -86,6 +94,7 @@ export const categorias: Categoria[] = [
   {
     id: 10,
     nome: "Textual",
+    img: CATEGORIA_IMG + "textual.png",
     generos: [
       Genero.PERGUNTAS_RESPOSTAS,
       Genero.VISUAL_NOVEL,
@@ -94,6 +103,8 @@ export const categorias: Categoria[] = [
   },
   {
     id: 11,
-    nome: "Tiro"
+    nome: "Tiro",
+    img: CATEGORIA_IMG + "tiro.png",
+    generos: []
   },
 ];

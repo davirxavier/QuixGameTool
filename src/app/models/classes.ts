@@ -1,3 +1,5 @@
+import {GENERO_IMG} from "./constants";
+
 export class Estrutura {
   id: number;
   nome: string;
@@ -44,6 +46,12 @@ export enum Genero {
 }
 
 export const ImagensGenero = {
+  [Genero.LUTA]: 'assets/img/generos/luta.png',
+  [Genero.HACK]: 'assets/img/generos/hackslash.png',
+  [Genero.SOULS]: 'assets/img/generos/soulslike.png',
+  [Genero.EXPLORACAO]: 'assets/img/generos/exploração.png',
+  [Genero.PLATAFORMA]: 'assets/img/generos/plataforma.png',
+  [Genero.SOBREVIVENCIA]: 'assets/img/generos/sobrevivencia.png',
   [Genero.FUTEBOL]: 'assets/img/categorias/esporte.png'
 };
 

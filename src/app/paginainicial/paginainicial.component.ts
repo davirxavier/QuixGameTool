@@ -61,7 +61,7 @@ export class PaginainicialComponent implements OnInit {
     },
     {
       pergunta: 'Escolha até três gêneros',
-      explicacao: 'Essas categorias representam a base do seu jogo.',
+      explicacao: 'Estes gêneros buscam padronizar seu jogo.',
       escolhaMultipla: true,
       escolhasMaximas: 3,
       escolhaRetorno: (opcoes) => {
