@@ -8,6 +8,7 @@ export class Categoria {
   id: number;
   nome: string;
   generos?: Genero[];
+  img?: string;
 }
 
 export enum Genero {
@@ -42,6 +43,10 @@ export enum Genero {
   AVENTURA_TEXTO = "Aventura em Texto"
 }
 
+export const ImagensGenero = {
+  [Genero.FUTEBOL]: 'assets/img/categorias/esporte.png'
+};
+
 export enum Visao {
   VERTICAL = "Vertical",
   HORIZONTAL = "Horizontal",
@@ -67,4 +72,16 @@ export class Conexao {
 export class Plataforma {
   id: number;
   nome: string;
+}
+
+export enum Engine {
+  UNITY = "Unity Engine",
+  GODOT = "Godot Engine",
+  UNREAL = "Unreal Engine",
+  GAME_MAKER = "Game Maker Engine",
+  RPG_MAKER = "RPG Maker Engine",
+  CONSTRUCT = "Construct Engine",
+  CRY_ENGINE = "CryEngine",
+  PHASER = "Phaser Engine",
+  GDEVELOP = "GDevelop Engine"
 }

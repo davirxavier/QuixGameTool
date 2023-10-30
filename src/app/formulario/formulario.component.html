@@ -52,6 +52,12 @@
                  [searchable]="true"
                  [items]="plataformas" bindValue="id" bindLabel="nome"></ng-select>
     </div>
+    <div>
+      <mat-form-field>
+        <mat-label class="tamanhocampo">História do Jogo</mat-label>
+        <input matInput placeholder="Descreva brevemente a história do seu jogo...">
+      </mat-form-field>
+    </div>
     <input *ngIf="formGroup.valid" type="submit" value="Enviar">
   </div>
 </form>

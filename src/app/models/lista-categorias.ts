@@ -1,4 +1,5 @@
 import {Categoria, Genero} from "./classes";
+import {CATEGORIA_IMG} from "./constants";
 
 export const categorias: Categoria[] = [
   {
@@ -41,6 +42,7 @@ export const categorias: Categoria[] = [
   {
     id: 5,
     nome: "Esportes",
+    img: CATEGORIA_IMG + "esporte.png",
     generos: [
       Genero.FUTEBOL,
       Genero.CARTAS,

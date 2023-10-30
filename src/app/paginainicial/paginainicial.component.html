@@ -12,6 +12,7 @@
                 #carousel
                 [showNavigationArrows]="false"
                 [showNavigationIndicators]="false"
+                [keyboard]="false"
                 [interval]="0">
     <ng-template ngbSlide>
       <!-- Botão para rolar a página -->
@@ -20,8 +21,26 @@
           <img ngSrc="assets/img/QGTt.png" height="245" width="500">
         </div>
         <div class="">
-          <button class="btn btn-primary button-purple" (click)="scrollToContent()">Começar</button>
+          <button class="btn btn-primary button-purple" (click)="nextSlide()">Começar</button>
         </div>
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide *ngFor="let s of slides">
+      <div class="tamanhopagina d-flex flex-column align-items-center justify-content-center">
+        <h3>{{s.pergunta}}</h3>
+        <h5>{{s.explicacao}}</h5>
+
+        <div class="d-flex w-100 align-items-center justify-content-center flex-wrap overflow-auto">
+          <div *ngFor="let o of s.opcoes" (click)="onSelect(o, s)"
+               class="px-4 d-flex flex-column align-items-center justify-content-center cursor">
+            <img src="{{o.imagem}}" class="imagem-opcao my-2" [class.selecionada]="o.selecionada" [class.small]="s.opcoes.length > 5">
+            <span class="unselectable"><strong>{{o.nome}}</strong></span>
+          </div>
+        </div>
+
+        <span *ngIf="s.escolhaMultipla && !showContinue(s)" class="text-white my-4">Escolha entre uma e {{s.escolhasMaximas}} opções!</span>
+        <button class="btn btn-primary button-purple my-4" *ngIf="s.escolhaMultipla && showContinue(s)" (click)="continuar(s)">Continuar</button>
       </div>
     </ng-template>
 

@@ -1,0 +1,32 @@
+$img-w: 10rem
+$img-wb: 11rem
+
+.cursor
+  cursor: pointer
+
+.imagem-opcao.selecionada
+  border: 4px white solid
+
+.imagem-opcao:not(.small)
+  width: $img-w
+  min-width: $img-w
+  max-width: $img-w
+  border-radius: 50%
+  transition: all 0.1s ease-in
+
+  &:hover
+    width: $img-wb
+    min-width: $img-wb
+    max-width: $img-wb
+
+.imagem-opcao.small
+  width: $img-w * 0.7
+  min-width: $img-w * 0.7
+  max-width: $img-w * 0.7
+  border-radius: 50%
+  transition: all 0.1s ease-in
+
+  &:hover
+    width: $img-wb * 0.7
+    min-width: $img-wb * 0.7
+    max-width: $img-wb * 0.7

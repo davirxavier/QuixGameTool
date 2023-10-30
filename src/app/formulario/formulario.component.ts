@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, FormsModule, Validators} from "@angular/forms";
+import {MatInputModule} from '@angular/material/input';
 import {Categoria, Conexao, Controle, Estrutura, Genero, Mapa, Plataforma, Visao} from "../models/classes";
 import {categorias} from "../models/lista-categorias";
 import {estruturas} from "../models/lista-estruturas";
@@ -11,7 +12,7 @@ import {plataformas} from "../models/lista-plataformas";
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.sass']
+  styleUrls: ['./formulario.component.sass'],
 })
 export class FormularioComponent implements OnInit {
 
