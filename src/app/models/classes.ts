@@ -52,7 +52,29 @@ export const ImagensGenero = {
   [Genero.EXPLORACAO]: 'assets/img/generos/exploração.png',
   [Genero.PLATAFORMA]: 'assets/img/generos/plataforma.png',
   [Genero.SOBREVIVENCIA]: 'assets/img/generos/sobrevivencia.png',
-  [Genero.FUTEBOL]: 'assets/img/categorias/esporte.png'
+  [Genero.COMBATE_PLAYERS]: 'assets/img/generos/combate.png',
+  [Genero.PONTOS]: 'assets/img/generos/pontos.png',
+  [Genero.ROGUELITE]: 'assets/img/generos/roguelite.png',
+  [Genero.RTS]: 'assets/img/generos/estrategiareal.png',
+  [Genero.TBS]: 'assets/img/generos/estrategiaturno.png',
+  [Genero.TORRE]: 'assets/img/generos/torre.png',
+  [Genero.QUEBRA_CABECA]: 'assets/img/generos/quebracabeça.png',
+  [Genero.FUTEBOL]: 'assets/img/generos/futebol.png',
+  [Genero.CARTAS]: 'assets/img/generos/cartas.png',
+  [Genero.CORRIDA]: 'assets/img/generos/corrida.png',
+  [Genero.BASQUETE]: 'assets/img/generos/basquete.png',
+  [Genero.RADICAIS]: 'assets/img/generos/radicais.png',
+  [Genero.RPG_ACAO]: 'assets/img/generos/rpgação.png',
+  [Genero.RPG_TURNO]: 'assets/img/generos/rpgturno.png',
+  [Genero.VEICULOS]: 'assets/img/generos/veiculos.png',
+  [Genero.SIMULADOR_VIDA]: 'assets/img/generos/simuladorvida.png',
+  [Genero.CONSTRUCAO]: 'assets/img/generos/simuladorconstrução.png',
+  [Genero.SURVIVAL_HORROR]: 'assets/img/generos/terrorsobrevivencia.png',
+  [Genero.TERROR_ACAO]: 'assets/img/generos/terroração.png',
+  [Genero.TERROR_PSICOLOGICO]: 'assets/img/generos/psicologico.png',
+  [Genero.PERGUNTAS_RESPOSTAS]: 'assets/img/generos/perguntasrespostas.png',
+  [Genero.VISUAL_NOVEL]: 'assets/img/generos/novelavisual.png',
+  [Genero.AVENTURA_TEXTO]: 'assets/img/generos/aventuratexto.png'
 };
 
 export enum Visao {
