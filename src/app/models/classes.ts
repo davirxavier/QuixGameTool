@@ -107,11 +107,13 @@ export class Mapa {
 export class Conexao {
   id: number;
   nome: string;
+  img?: string;
 }
 
 export class Plataforma {
   id: number;
   nome: string;
+  img?: string;
 }
 
 export enum Engine {

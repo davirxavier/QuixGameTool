@@ -5,6 +5,8 @@ import {Genero, ImagensGenero, ImagensVisoes, Visao} from "../models/classes";
 import {estruturas} from "../models/lista-estruturas";
 import {controles} from "../models/lista-controles";
 import {mapas} from "../models/lista-mapas";
+import {conexoes} from "../models/lista-conexoes";
+import {plataformas} from "../models/lista-plataformas";
 
 @Component({
   selector: 'app-root',
@@ -143,6 +145,34 @@ export class PaginainicialComponent implements OnInit {
         nome: m.nome,
         valor: m.id,
         imagem: m.img
+      }))
+    },
+    {
+      pergunta: 'Escolha a conexão do seu jogo',
+      explicacao: 'O seu jogo procura um jogador ou mais?',
+      escolhaMultipla: false,
+      escolhasMaximas: 1,
+      escolhaRetorno: (opcoes) => {
+        this.respostas.conexoes = opcoes.map(o => o.valor);
+      },
+      opcoes: conexoes.map(c => ({
+        nome: c.nome,
+        valor: c.id,
+        imagem: c.img
+      }))
+    },
+    {
+      pergunta: 'Escolha a plataforma do seu jogo',
+      explicacao: 'Em qual dispositivo o seu jogo será executado?',
+      escolhaMultipla: false,
+      escolhasMaximas: 1,
+      escolhaRetorno: (opcoes) => {
+        this.respostas.plataformas = opcoes.map(o => o.valor);
+      },
+      opcoes: plataformas.map(p => ({
+        nome: p.nome,
+        valor: p.id,
+        imagem: p.img
       }))
     }
   ];
