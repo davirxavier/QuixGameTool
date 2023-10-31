@@ -1,7 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
 import {categorias} from "../models/lista-categorias";
-import {Genero, ImagensGenero} from "../models/classes";
+import {Genero, ImagensGenero, ImagensVisoes, Visao} from "../models/classes";
+import {estruturas} from "../models/lista-estruturas";
+import {controles} from "../models/lista-controles";
+import {mapas} from "../models/lista-mapas";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +17,13 @@ export class PaginainicialComponent implements OnInit {
 
   respostas = {
     categorias: [],
-    generos: []
+    generos: [],
+    estruturas: [],
+    visoes: [],
+    controles: [],
+    mapas: [],
+    conexoes: [],
+    plataformas: []
   };
 
   slides: {
@@ -68,6 +77,73 @@ export class PaginainicialComponent implements OnInit {
         this.respostas.generos = opcoes.map(o => o.valor);
       },
       opcoes: []
+    },
+    {
+      pergunta: 'Escolha a estrutura do seu jogo',
+      explicacao: 'Qual será a forma que seu jogo terá?',
+      escolhaMultipla: false,
+      escolhasMaximas: 1,
+      escolhaRetorno: (opcoes) => {
+        const visoes: Visao[] = [];
+
+        for(let opcao of opcoes) {
+          const estrutura = estruturas.find(e => e.id === opcao.valor);
+          if (estrutura) {
+            visoes.push(...estrutura.visao);
+          }
+        }
+
+        this.slides[3].opcoes = visoes.map(v => ({
+          nome: v,
+          valor: v,
+          imagem: ImagensVisoes[v]
+        }))
+
+        this.respostas.estruturas = opcoes.map(o => o.valor);
+      },
+      opcoes: estruturas.map(e => ({
+        nome: e.nome,
+        valor: e.id,
+        imagem: e.img
+      }))
+    },
+    {
+      pergunta: 'Escolha a visão do seu jogo',
+      explicacao: 'Qual será a perspectiva que seu jogo terá?',
+      escolhaMultipla: false,
+      escolhasMaximas: 1,
+      escolhaRetorno: (opcoes) => {
+        this.respostas.visoes = opcoes.map(o => o.valor);
+      },
+      opcoes: []
+    },
+    {
+      pergunta: 'Escolha o controle do seu jogo',
+      explicacao: 'Você deve escolher qual a base de controle de seu jogo.',
+      escolhaMultipla: false,
+      escolhasMaximas: 1,
+      escolhaRetorno: (opcoes) => {
+        this.respostas.controles = opcoes.map(o => o.valor);
+      },
+      opcoes: controles.map(c => ({
+        nome: c.nome,
+        valor: c.id,
+        imagem: c.img
+      }))
+    },
+    {
+      pergunta: 'Escolha o mapa do seu jogo',
+      explicacao: 'O tipo de mapa reflete em grande parte de como será o jogo.',
+      escolhaMultipla: false,
+      escolhasMaximas: 1,
+      escolhaRetorno: (opcoes) => {
+        this.respostas.mapas = opcoes.map(o => o.valor);
+      },
+      opcoes: mapas.map(m => ({
+        nome: m.nome,
+        valor: m.id,
+        imagem: m.img
+      }))
     }
   ];
 

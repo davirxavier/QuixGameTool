@@ -3,7 +3,8 @@ import {GENERO_IMG} from "./constants";
 export class Estrutura {
   id: number;
   nome: string;
-  visao?: Visao[]
+  visao?: Visao[];
+  img?: string;
 }
 
 export class Categoria {
@@ -84,14 +85,23 @@ export enum Visao {
   T_PESSOA = "Terceira Pessoa"
 }
 
+export const ImagensVisoes = {
+  [Visao.VERTICAL]: 'assets/img/visoes/vertical.png',
+  [Visao.HORIZONTAL]: 'assets/img/visoes/horizontal.png',
+  [Visao.P_PESSOA]: 'assets/img/visoes/1pessoa.png',
+  [Visao.T_PESSOA]: 'assets/img/visoes/3pessoa.png'
+};
+
 export class Controle {
   id: number;
   nome: string;
+  img?: string;
 }
 
 export class Mapa {
   id: number;
   nome: string;
+  img?: string;
 }
 
 export class Conexao {
