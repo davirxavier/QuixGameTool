@@ -1,12 +1,13 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
 import {categorias} from "../models/lista-categorias";
-import {Genero, ImagensGenero, ImagensVisoes, Visao} from "../models/classes";
+import {Engine, Genero, ImagensGenero, ImagensVisoes, Visao} from "../models/classes";
 import {estruturas} from "../models/lista-estruturas";
 import {controles} from "../models/lista-controles";
 import {mapas} from "../models/lista-mapas";
 import {conexoes} from "../models/lista-conexoes";
 import {plataformas} from "../models/lista-plataformas";
+import {GeneroPontos, VisaoPontos} from "../models/pontos";
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ import {plataformas} from "../models/lista-plataformas";
 export class PaginainicialComponent implements OnInit {
   title = 'qgtfront';
   @ViewChild("carousel") carousel: NgbCarousel;
+
+  slideIndex = 0;
 
   respostas = {
     categorias: [],
@@ -63,6 +66,10 @@ export class PaginainicialComponent implements OnInit {
         }));
 
         this.respostas.categorias = opcoes.map(o => o.valor);
+
+        // if (generos.length == 0) {
+        //   this.slides.splice(1, 1);
+        // }
       },
       opcoes: categorias.map(c => ({
         nome: c.nome,
@@ -195,6 +202,88 @@ export class PaginainicialComponent implements OnInit {
 
   nextSlide() {
     this.carousel.next();
+    this.slideIndex++;
+
+    if (this.slideIndex > this.slides.length) {
+      const pontos: {[engine: string]: number} = {};
+      Object.keys(Engine).forEach(ek => {
+        pontos[Engine[ek]] = 0;
+      });
+
+      this.respostas.categorias.forEach(v => {
+        const p = categorias.find(c => c.id == v);
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      this.respostas.generos.forEach(v => {
+        const p = GeneroPontos[v];
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      this.respostas.estruturas.forEach(v => {
+        const p = estruturas.find(c => c.id == v);
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      this.respostas.visoes.forEach(v => {
+        const p = VisaoPontos[v];
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      this.respostas.controles.forEach(v => {
+        const p = controles.find(c => c.id == v);
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      this.respostas.mapas.forEach(v => {
+        const p = mapas.find(c => c.id == v);
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      this.respostas.conexoes.forEach(v => {
+        const p = conexoes.find(c => c.id == v);
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      this.respostas.plataformas.forEach(v => {
+        const p = plataformas.find(c => c.id == v);
+        if (p) {
+          Object.keys(p).forEach(engine => {
+            pontos[engine] += p[engine];
+          });
+        }
+      });
+
+      console.log(pontos);
+    }
   }
 
   continuar(slide) {
@@ -203,7 +292,6 @@ export class PaginainicialComponent implements OnInit {
     }
 
     this.nextSlide();
-    console.log(this.respostas)
   }
 
   showContinue(slide) {

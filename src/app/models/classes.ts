@@ -5,6 +5,7 @@ export class Estrutura {
   nome: string;
   visao?: Visao[];
   img?: string;
+  pontos: {[engine: string]: number};
 }
 
 export class Categoria {
@@ -12,6 +13,7 @@ export class Categoria {
   nome: string;
   generos?: Genero[];
   img?: string;
+  pontos: {[engine: string]: number};
 }
 
 export enum Genero {
@@ -96,24 +98,28 @@ export class Controle {
   id: number;
   nome: string;
   img?: string;
+  pontos: {[engine: string]: number};
 }
 
 export class Mapa {
   id: number;
   nome: string;
   img?: string;
+  pontos: {[engine: string]: number};
 }
 
 export class Conexao {
   id: number;
   nome: string;
   img?: string;
+  pontos: {[engine: string]: number};
 }
 
 export class Plataforma {
   id: number;
   nome: string;
   img?: string;
+  pontos: {[engine: string]: number};
 }
 
 export enum Engine {
@@ -126,4 +132,14 @@ export enum Engine {
   CRY_ENGINE = "CryEngine",
   PHASER = "Phaser Engine",
   GDEVELOP = "GDevelop Engine"
+}
+
+export class FaixaEtaria {
+  id: number;
+  nome: string;
+}
+
+export class PublicoAlvo {
+  id: number;
+  nome: string;
 }

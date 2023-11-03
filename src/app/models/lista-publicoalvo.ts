@@ -1,0 +1,2 @@
+import {PublicoAlvo} from "./classes";
+
