@@ -58,8 +58,8 @@
         <span>Esta é a mais recomendada para a sua situação, veja uma análise com visão em gráfico clicando no botão abaixo, indicando outras duas recomendações de engines para o seu projeto.</span>
         <button class="btn btn-primary button-purple my-3" (click)="mostrarGrafico = !mostrarGrafico">Ver mais</button>
 
-        <div class="d-flex flex-row align-items-center justify-content-between">
-          <canvas baseChart *ngIf="mostrarGrafico"
+        <div class="d-flex flex-row align-items-center">
+          <canvas baseChart *ngIf="mostrarGrafico" class="mx-5"
                   [type]="'pie'"
                   [datasets]="pieChartDatasets"
                   [labels]="pieChartLabels"
