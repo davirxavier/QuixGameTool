@@ -24,12 +24,12 @@ export const plataformas: Plataforma[] = [
     img: PLATAFORMA_IMG + "mobile.png",
     pontos: {
       [Engine.UNITY]: 1,
-      [Engine.UNREAL]: 1,
+      [Engine.UNREAL]: 0,
       [Engine.GODOT]: 1,
       [Engine.GAME_MAKER]: 1,
       [Engine.RPG_MAKER]: 1,
       [Engine.CONSTRUCT]: 1,
-      [Engine.CRY_ENGINE]: 1,
+      [Engine.CRY_ENGINE]: 0,
       [Engine.PHASER]: 5,
       [Engine.GDEVELOP]: 3
     }
@@ -39,14 +39,14 @@ export const plataformas: Plataforma[] = [
     nome: "Navegador Web",
     img: PLATAFORMA_IMG + "web.png",
     pontos: {
-      [Engine.UNITY]: 1,
-      [Engine.UNREAL]: 1,
-      [Engine.GODOT]: 1,
+      [Engine.UNITY]: 0,
+      [Engine.UNREAL]: 0,
+      [Engine.GODOT]: 0,
       [Engine.GAME_MAKER]: 1,
       [Engine.RPG_MAKER]: 1,
       [Engine.CONSTRUCT]: 5,
-      [Engine.CRY_ENGINE]: 1,
-      [Engine.PHASER]: 4,
+      [Engine.CRY_ENGINE]: 0,
+      [Engine.PHASER]: 3,
       [Engine.GDEVELOP]: 3
     }
   }

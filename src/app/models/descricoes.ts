@@ -65,3 +65,15 @@ export const EngineImagens: {[engine: string]: string} = {
   [Engine.PHASER]: ENGINE_IMG + "phaser.png",
   [Engine.GDEVELOP]: ENGINE_IMG + "gdevelop.png"
 };
+
+export const EngineLinks: {[engine: string]: string} = {
+  [Engine.UNITY]: "https://unity.com/",
+  [Engine.UNREAL]: "https://www.unrealengine.com/",
+  [Engine.GODOT]: "https://godotengine.org/",
+  [Engine.GAME_MAKER]: "https://gamemaker.io/",
+  [Engine.RPG_MAKER]: "https://www.rpgmakerweb.com/",
+  [Engine.CONSTRUCT]: "https://www.construct.net/",
+  [Engine.CRY_ENGINE]: "https://www.cryengine.com/",
+  [Engine.PHASER]: "https://phaser.io/",
+  [Engine.GDEVELOP]: "https://gdevelop.io/"
+};

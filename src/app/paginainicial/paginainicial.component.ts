@@ -8,8 +8,8 @@ import {mapas} from "../models/lista-mapas";
 import {conexoes} from "../models/lista-conexoes";
 import {plataformas} from "../models/lista-plataformas";
 import {GeneroPontos, VisaoPontos} from "../models/pontos";
-import {ChartOptions} from "chart.js";
-import {EngineDescricao, EngineImagens} from "../models/descricoes";
+import {ChartConfiguration, ChartOptions} from "chart.js";
+import {EngineDescricao, EngineImagens, EngineLinks} from "../models/descricoes";
 
 @Component({
   selector: 'app-root',
@@ -24,6 +24,7 @@ export class PaginainicialComponent implements OnInit {
 
   descricoesEngines = EngineDescricao;
   imagensEngines = EngineImagens;
+  linksEngines = EngineLinks;
   maiorPontos: string = undefined;
   maiorPontos2: string = undefined;
   maiorPontos3: string = undefined;
@@ -36,6 +37,21 @@ export class PaginainicialComponent implements OnInit {
   pieChartDatasets = [{data: []}];
   pieChartLegend = false;
   pieChartPlugins = [];
+
+  barChartLegend = false;
+  barChartPlugins = [];
+
+  barChartData: ChartConfiguration<'bar'>['data'] = {
+    labels: [],
+    datasets: [
+      { data: [], label: '' },
+      { data: [], label: '' }
+    ]
+  };
+
+  barChartOptions: ChartConfiguration<'bar'>['options'] = {
+    responsive: false,
+  };
 
   respostas = {
     categorias: [],
@@ -309,6 +325,8 @@ export class PaginainicialComponent implements OnInit {
 
       this.pieChartLabels = maiores.map(p => p.engine);
       this.pieChartDatasets[0].data = maiores.map(p => p.pontos);
+      this.barChartData.labels = maiores.map(p => p.engine);
+      this.barChartData.datasets[0].data = maiores.map(p => p.pontos);
     }
   }
 
@@ -330,4 +348,6 @@ export class PaginainicialComponent implements OnInit {
 
     return count <= slide.escolhasMaximas && count > 0;
   }
+
+  protected readonly undefined = undefined;
 }

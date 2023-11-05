@@ -12,12 +12,12 @@ export const estruturas: Estrutura[] = [
     ],
     pontos: {
       [Engine.UNITY]: 2,
-      [Engine.UNREAL]: 1,
+      [Engine.UNREAL]: 0,
       [Engine.GODOT]: 3,
       [Engine.GAME_MAKER]: 5,
       [Engine.RPG_MAKER]: 5,
       [Engine.CONSTRUCT]: 5,
-      [Engine.CRY_ENGINE]: 1,
+      [Engine.CRY_ENGINE]: 0,
       [Engine.PHASER]: 5,
       [Engine.GDEVELOP]: 5
     }
@@ -32,13 +32,13 @@ export const estruturas: Estrutura[] = [
     ],
     pontos: {
       [Engine.UNITY]: 3,
-      [Engine.UNREAL]: 1,
+      [Engine.UNREAL]: 0,
       [Engine.GODOT]: 3,
-      [Engine.GAME_MAKER]: 1,
-      [Engine.RPG_MAKER]: 1,
-      [Engine.CONSTRUCT]: 1,
-      [Engine.CRY_ENGINE]: 1,
-      [Engine.PHASER]: 1,
+      [Engine.GAME_MAKER]: 0,
+      [Engine.RPG_MAKER]: 0,
+      [Engine.CONSTRUCT]: 0,
+      [Engine.CRY_ENGINE]: 0,
+      [Engine.PHASER]: 0,
       [Engine.GDEVELOP]: 3
     }
   },
@@ -54,9 +54,9 @@ export const estruturas: Estrutura[] = [
       [Engine.UNITY]: 5,
       [Engine.UNREAL]: 5,
       [Engine.GODOT]: 4,
-      [Engine.GAME_MAKER]: 1,
-      [Engine.RPG_MAKER]: 1,
-      [Engine.CONSTRUCT]: 1,
+      [Engine.GAME_MAKER]: 0,
+      [Engine.RPG_MAKER]: 0,
+      [Engine.CONSTRUCT]: 0,
       [Engine.CRY_ENGINE]: 5,
       [Engine.PHASER]: 3,
       [Engine.GDEVELOP]: 4

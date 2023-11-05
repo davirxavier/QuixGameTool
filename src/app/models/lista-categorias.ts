@@ -96,8 +96,7 @@ export const categorias: Categoria[] = [
       Genero.CARTAS,
       Genero.CORRIDA,
       Genero.BASQUETE,
-      Genero.RADICAIS,
-      Genero.LUTA
+      Genero.RADICAIS
     ],
     pontos: {
       [Engine.UNITY]: 4,
