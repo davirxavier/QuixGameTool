@@ -46,7 +46,7 @@ export const plataformas: Plataforma[] = [
       [Engine.RPG_MAKER]: 1,
       [Engine.CONSTRUCT]: 5,
       [Engine.CRY_ENGINE]: 1,
-      [Engine.PHASER]: 1,
+      [Engine.PHASER]: 4,
       [Engine.GDEVELOP]: 3
     }
   }

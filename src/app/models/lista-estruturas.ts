@@ -39,7 +39,7 @@ export const estruturas: Estrutura[] = [
       [Engine.CONSTRUCT]: 1,
       [Engine.CRY_ENGINE]: 1,
       [Engine.PHASER]: 1,
-      [Engine.GDEVELOP]: 1
+      [Engine.GDEVELOP]: 3
     }
   },
   {
@@ -58,8 +58,8 @@ export const estruturas: Estrutura[] = [
       [Engine.RPG_MAKER]: 1,
       [Engine.CONSTRUCT]: 1,
       [Engine.CRY_ENGINE]: 5,
-      [Engine.PHASER]: 1,
-      [Engine.GDEVELOP]: 1
+      [Engine.PHASER]: 3,
+      [Engine.GDEVELOP]: 4
     }
   }
 ]

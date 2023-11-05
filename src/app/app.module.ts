@@ -15,6 +15,7 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

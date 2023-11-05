@@ -197,7 +197,7 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 1,
     [Engine.CONSTRUCT]: 4,
     [Engine.CRY_ENGINE]: 1,
-    [Engine.PHASER]: 5,
+    [Engine.PHASER]: 4,
     [Engine.GDEVELOP]: 4
   },
   [Genero.RPG_ACAO]: {
@@ -208,8 +208,8 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 1,
     [Engine.CONSTRUCT]: 5,
     [Engine.CRY_ENGINE]: 3,
-    [Engine.PHASER]: 5,
-    [Engine.GDEVELOP]: 5
+    [Engine.PHASER]: 3,
+    [Engine.GDEVELOP]: 4
   },
   [Genero.RPG_TURNO]: {
     [Engine.UNITY]: 2,
@@ -219,8 +219,8 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 5,
     [Engine.CONSTRUCT]: 3,
     [Engine.CRY_ENGINE]: 1,
-    [Engine.PHASER]: 5,
-    [Engine.GDEVELOP]: 5
+    [Engine.PHASER]: 3,
+    [Engine.GDEVELOP]: 3
   },
   [Genero.VEICULOS]: {
     [Engine.UNITY]: 4,
@@ -230,7 +230,7 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 1,
     [Engine.CONSTRUCT]: 5,
     [Engine.CRY_ENGINE]: 1,
-    [Engine.PHASER]: 5,
+    [Engine.PHASER]: 4,
     [Engine.GDEVELOP]: 3
   },
   [Genero.SIMULADOR_VIDA]: {
@@ -241,7 +241,7 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 2,
     [Engine.CONSTRUCT]: 5,
     [Engine.CRY_ENGINE]: 1,
-    [Engine.PHASER]: 5,
+    [Engine.PHASER]: 4,
     [Engine.GDEVELOP]: 3
   },
   [Genero.CONSTRUCAO]: {
@@ -252,7 +252,7 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 1,
     [Engine.CONSTRUCT]: 5,
     [Engine.CRY_ENGINE]: 1,
-    [Engine.PHASER]: 5,
+    [Engine.PHASER]: 4,
     [Engine.GDEVELOP]: 2
   },
   [Genero.SURVIVAL_HORROR]: {
@@ -274,7 +274,7 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 1,
     [Engine.CONSTRUCT]: 4,
     [Engine.CRY_ENGINE]: 5,
-    [Engine.PHASER]: 5,
+    [Engine.PHASER]: 4,
     [Engine.GDEVELOP]: 3
   },
   [Genero.TERROR_PSICOLOGICO]: {
@@ -285,7 +285,7 @@ export const GeneroPontos: {[genero: string]: {[engine: string]: number}} = {
     [Engine.RPG_MAKER]: 2,
     [Engine.CONSTRUCT]: 4,
     [Engine.CRY_ENGINE]: 5,
-    [Engine.PHASER]: 5,
+    [Engine.PHASER]: 3,
     [Engine.GDEVELOP]: 3
   },
   [Genero.PERGUNTAS_RESPOSTAS]: {

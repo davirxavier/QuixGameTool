@@ -8,6 +8,8 @@ import {mapas} from "../models/lista-mapas";
 import {conexoes} from "../models/lista-conexoes";
 import {plataformas} from "../models/lista-plataformas";
 import {GeneroPontos, VisaoPontos} from "../models/pontos";
+import {ChartOptions} from "chart.js";
+import {EngineDescricao, EngineImagens} from "../models/descricoes";
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,21 @@ export class PaginainicialComponent implements OnInit {
   @ViewChild("carousel") carousel: NgbCarousel;
 
   slideIndex = 0;
+
+  descricoesEngines = EngineDescricao;
+  imagensEngines = EngineImagens;
+  maiorPontos: string = undefined;
+  maiorPontos2: string = undefined;
+  maiorPontos3: string = undefined;
+  mostrarGrafico: boolean = false;
+  pontos: {[engine: string]: number} = undefined;
+  pieChartOptions: ChartOptions<'pie'> = {
+    responsive: false,
+  };
+  pieChartLabels = [];
+  pieChartDatasets = [{data: []}];
+  pieChartLegend = false;
+  pieChartPlugins = [];
 
   respostas = {
     categorias: [],
@@ -200,89 +217,98 @@ export class PaginainicialComponent implements OnInit {
     }
   }
 
+  addPontos(p: {[engine: string]: number}) {
+    Object.keys(p).forEach(engine => {
+      if (p[engine]) {
+        this.pontos[engine] += p[engine];
+      }
+    });
+  }
+
   nextSlide() {
     this.carousel.next();
     this.slideIndex++;
 
     if (this.slideIndex > this.slides.length) {
-      const pontos: {[engine: string]: number} = {};
+      this.pontos = {};
       Object.keys(Engine).forEach(ek => {
-        pontos[Engine[ek]] = 0;
+        this.pontos[Engine[ek]] = 0;
       });
 
       this.respostas.categorias.forEach(v => {
         const p = categorias.find(c => c.id == v);
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p.pontos);
         }
       });
 
       this.respostas.generos.forEach(v => {
         const p = GeneroPontos[v];
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p);
         }
       });
 
       this.respostas.estruturas.forEach(v => {
         const p = estruturas.find(c => c.id == v);
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p.pontos);
         }
       });
 
       this.respostas.visoes.forEach(v => {
         const p = VisaoPontos[v];
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p);
         }
       });
 
       this.respostas.controles.forEach(v => {
         const p = controles.find(c => c.id == v);
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p.pontos);
         }
       });
 
       this.respostas.mapas.forEach(v => {
         const p = mapas.find(c => c.id == v);
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p.pontos);
         }
       });
 
       this.respostas.conexoes.forEach(v => {
         const p = conexoes.find(c => c.id == v);
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p.pontos);
         }
       });
 
       this.respostas.plataformas.forEach(v => {
         const p = plataformas.find(c => c.id == v);
         if (p) {
-          Object.keys(p).forEach(engine => {
-            pontos[engine] += p[engine];
-          });
+          this.addPontos(p.pontos);
         }
       });
 
-      console.log(pontos);
+      const vetPontos = Object.keys(Engine).map(k => ({
+        engine: Engine[k],
+        pontos: this.pontos[Engine[k]],
+      }));
+      vetPontos.sort((e1, e2) => e1.pontos > e2.pontos ? 1 : -1);
+      const maiores = vetPontos.splice(vetPontos.length-3);
+      this.maiorPontos = maiores[2].engine;
+
+      if (maiores[2].pontos === maiores[1].pontos) {
+        this.maiorPontos2 = maiores[1].engine;
+      }
+
+      if (maiores[2].pontos === maiores[0].pontos) {
+        this.maiorPontos3 = maiores[0].engine;
+      }
+
+      this.pieChartLabels = maiores.map(p => p.engine);
+      this.pieChartDatasets[0].data = maiores.map(p => p.pontos);
     }
   }
 
@@ -304,6 +330,4 @@ export class PaginainicialComponent implements OnInit {
 
     return count <= slide.escolhasMaximas && count > 0;
   }
-
-  protected readonly open = open;
 }
