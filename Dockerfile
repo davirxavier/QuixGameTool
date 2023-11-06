@@ -11,25 +11,23 @@ COPY . /usr/qxgametool-server
 ARG BASE_PATH
 RUN npm run build -- --base-href=/${BASE_PATH}/
 
-FROM nginx:1.8-alpine
+FROM httpd:2.4.58-alpine
 
 ARG BASE_PATH
-RUN mkdir "/usr/share/nginx/html/${BASE_PATH}"
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=build "/usr/qxgametool-server/dist/qgtfront" "/usr/share/nginx/html/${BASE_PATH}"
+COPY --from=build /usr/qxgametool-server/dist/qgtfront /usr/local/apache2/htdocs/${BASE_PATH}
 
-ARG EXTERNAL_SERVER_PORT
-RUN echo "server {" > /etc/nginx/conf.d/default.conf
-RUN echo "  listen 0.0.0.0:${EXTERNAL_SERVER_PORT};" >> /etc/nginx/conf.d/default.conf
-RUN echo "  root /usr/share/nginx/html;" >> /etc/nginx/conf.d/default.conf
-RUN echo "  location ~ /${BASE_PATH}/index.html|.*\.json$ {" >> /etc/nginx/conf.d/default.conf
-RUN echo "    expires -1;" >> /etc/nginx/conf.d/default.conf
-RUN echo "    add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';" >> /etc/nginx/conf.d/default.conf
-RUN echo "  }" >> /etc/nginx/conf.d/default.conf
-RUN echo "  location /${BASE_PATH} {" >> /etc/nginx/conf.d/default.conf
-RUN echo "    try_files \$uri \$uri/ /${BASE_PATH}/index.html =404;" >> /etc/nginx/conf.d/default.conf
-RUN echo "  }" >> /etc/nginx/conf.d/default.conf
-RUN echo "}" >> /etc/nginx/conf.d/default.conf
+RUN echo "RewriteEngine on" > /usr/local/apache2/htdocs/.htaccess
+RUN echo "RewriteCond %{REQUEST_FILENAME} !-f" >> /usr/local/apache2/htdocs/.htaccess
+RUN echo "RewriteCond %{REQUEST_FILENAME} !-d" >> /usr/local/apache2/htdocs/.htaccess
+RUN echo "RewriteCond %{REQUEST_URI} !\.(?:css|js|map|jpe?g|gif|png)$ [NC]" >> /usr/local/apache2/htdocs/.htaccess
+RUN echo "# rewrite everything else to index.html" >> /usr/local/apache2/htdocs/.htaccess
+RUN echo "RewriteRule ^(.*)$ /${BASE_PATH}/index.html?path=$1 [NC,L,QSA] " >> /usr/local/apache2/htdocs/.htaccess
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+RUN echo "LoadModule rewrite_module modules/mod_rewrite.so" >> /usr/local/apache2/conf/httpd.conf
+RUN echo 'DocumentRoot "/usr/local/apache2/htdocs"' >> /usr/local/apache2/conf/httpd.conf
+RUN echo '<Directory "/usr/local/apache2/htdocs">' >> /usr/local/apache2/conf/httpd.conf
+RUN echo "  Options Indexes FollowSymLinks" >> /usr/local/apache2/conf/httpd.conf
+RUN echo "  AllowOverride All" >> /usr/local/apache2/conf/httpd.conf
+RUN echo "  Require all granted" >> /usr/local/apache2/conf/httpd.conf
+RUN echo "</Directory>" >> /usr/local/apache2/conf/httpd.conf
+
