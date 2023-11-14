@@ -9,7 +9,7 @@ WORKDIR /usr/qxgametool-server
 COPY . /usr/qxgametool-server
 
 ARG BASE_PATH
-RUN npm run build -- --base-href=/${BASE_PATH}/
+RUN npm run build -- --base-href=/${BASE_PATH}/ --output-hashing=all
 
 FROM httpd:2.4.58-alpine
 
